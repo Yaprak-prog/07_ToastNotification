@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast Notifications</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/56b67a4ba4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="buttons">
+    <button onclick="showToast(msgScc)">Success</button>
+    <button onclick="showToast(msgErr)">Error</button>
+    <button onclick="showToast(msgInv)">Invalid</button>
+    </div>
+
+    <div id="toast-Box">
+
+    </div>
+
+    <script>
+        let toastBox=document.getElementById("toast-Box");
+        let txt="";
+        let msgScc='<i class="fa-solid fa-circle-check"></i>Successfully submitted';
+        let msgErr='<i class="fa-solid fa-circle-xmark"></i>Please fix the error !';
+        let msgInv='<i class="fa-solid fa-circle-exclamation"></i>Invalid input,check again!';
+
+        function showToast(msg){
+           
+            txt=msg;
+        let toast=document.createElement("div");
+        toast.classList.add('toast');
+        toast.innerHTML=msg;
+        toastBox.appendChild(toast);
+        setTimeout(() => { toast.remove(); }, 4000);}
+         
+        if(txt.includes('error'))
+        {
+            debugger;
+            toast.classList.add('error');
+        }
+        if(txt.includes('Invalid'))
+        {
+            toast.classList.add('invalid');
+        }
+
+   
+
+        
+    </script>
+</body>
+</html>
